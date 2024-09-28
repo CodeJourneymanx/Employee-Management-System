@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base :: Layout(~{::title}, ~{::section})}">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<section>
+		<div class="container mt-4">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center">
+							<p class="fs-3">Add Employee</p>
+							<th:block th:if="${session.msg}">
+								<p class="text-center text-success fs-4">[[${session.msg}]]</p>
+								<th:block th:text="${@empServiceImpl.removeSessionMessage()}">
+								</th:block>
+							</th:block>
+						</div>
+						<div class="card-body">
+							<form action="/saveEmp" method="Post">
+								<div class="mb-3">
+									<label for="nameInput" class="form-label">Enter Name</label> <input
+										type="text" class="form-control" id="nameInput" name="name">
+								</div>
+								<div class="mb-3">
+									<label for="emailInput" class="form-label">Email
+										Address</label> <input type="email" class="form-control"
+										id="emailInput" name="email">
+								</div>
+								<div class="mb-3">
+									<label for="addressInput" class="form-label">Enter
+										Address</label> <input type="text" class="form-control"
+										id="addressInput" name="address">
+								</div>
+
+								<div class="mb-3">
+									<label for="nameInput" class="form-label">Select Gender</label>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="gender"
+											id="inlineRadio1" value="Male"> <label
+											class="form-check-label" for="inlineRadio1">Male</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio" name="gender"
+											id="inlineRadio2" value="Female"> <label
+											class="form-check-label" for="inlineRadio2">Female</label>
+									</div>
+
+								</div>
+
+								<div class="mb-3">
+									<label for="passwordInput" class="form-label">Password</label>
+									<input type="password" class="form-control" id="passwordInput"
+										name="password">
+								</div>
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+
+
+
+</body>
+</html>
